@@ -1,0 +1,14 @@
+.textarea {
+	font-size: 1.4rem;
+	line-height: 1.8rem;
+	color: var(--text-color);
+	padding: 1.3rem 1.2rem;
+	border-radius: 1.2rem;
+	border: .1rem solid transparent;
+	background: var(--background-color);
+	height: 9rem;
+}
+
+.textarea::placeholder {
+	color: var(--text-inactive-color);
+}

@@ -1,3 +1,9 @@
 @import './common/_normalize.css';
+@import './common/_fonts.css';
 @import './common/_base.css';
 @import './partials/button.css';
+@import './partials/input.css';
+@import './partials/textarea.css';
+@import './partials/form.css';
+@import './partials/tabs.css';
+@import './partials/modal.css';

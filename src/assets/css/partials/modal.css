@@ -1,0 +1,36 @@
+.modal-backdrop {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: var(--modal-backdrop-color);
+	display: flex;
+  place-content: center;
+}
+
+.modal {
+	position: relative;
+	max-width: 51.6rem;
+	width: 100%;
+	background: white;
+	padding: 2.4rem;
+	place-self: center;
+	border-radius: 1.6rem;
+}
+
+.modal h2 {
+	font-size: 2rem;
+	font-weight: 600;
+	text-align: left;
+	margin-top: 0;
+	margin-bottom: 1.6rem;
+	color: var(--text-color);
+}
+
+.modal-close {
+	position: absolute;
+	top: 1.25rem;
+	right: 1.25rem;
+	cursor: pointer;
+}

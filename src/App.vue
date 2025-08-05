@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import Modal from './components/Modal.vue'
+import CreatePromocode from './components/CreatePromocode.vue';
 </script>
 
 <template>
-  <Modal/>
+  <CreatePromocode/>
 </template>
 
 <style>
