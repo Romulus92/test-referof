@@ -1,9 +1,9 @@
-
-
 :root {
   --brand-color: #05263F;
   --text-color: #1C1C1E;
   --text-inactive-color: #77777C;
+  --text-secondary-color: #797979;
+  --checkbox-border-color: #DFDEE3;
   --subtext-inactive-color: #ADAEB2;
   --accent-color: #107FD1;
   --error-color: #FF3B30;

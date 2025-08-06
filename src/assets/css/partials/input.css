@@ -4,10 +4,11 @@
 	gap: 1.6rem;
 }
 
-.input-content {
+.input-container {
 	display: flex;
 	flex-direction: column;
 	gap: .6rem;
+	grid-column: span 2;
 }
 
 .input-label {

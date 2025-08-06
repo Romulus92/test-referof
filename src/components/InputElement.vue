@@ -1,5 +1,5 @@
 <template>
-	<div class="input-content">
+	<div class="input-container">
 		<label
 			class="input-label"
 			:for="inputId"
@@ -8,9 +8,7 @@
 			<sup v-if="required">*</sup>
 		</label>
 		<div class="input-wrapper">
-			<div class="input-icon">
-				<slot name="icon"></slot>
-			</div>
+			<slot name="icon"></slot>
 			<input
 				v-if="type === 'text'"
 				class="input"

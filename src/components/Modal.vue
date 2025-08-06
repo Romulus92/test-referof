@@ -9,7 +9,7 @@
 				<div class="modal-close" @click="closeModal">
 					<img src="../assets/images/close.svg" alt="Закрыть модальное окно">
 				</div>
-				<slot></slot>
+				<slot :close="closeModal"></slot>
 			</div>
 		</div>
 	</Teleport>

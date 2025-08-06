@@ -1,5 +1,5 @@
 <template>
-	<div class="input-content">
+	<div class="input-container">
 		<label
 			class="input-label"
 			:for="inputId"
