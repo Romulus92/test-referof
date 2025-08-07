@@ -7,5 +7,7 @@
 </template>
 
 <script setup lang="ts">
-const isWithoutEndDate = defineModel('isWithoutEndDate');
+import { inject } from 'vue'
+
+const isWithoutEndDate = inject('isWithoutEndDate')
 </script>

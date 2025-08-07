@@ -1,0 +1,49 @@
+.radio-button {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 12px;
+  user-select: none;
+}
+
+/* Hide the native radio input */
+.radio-input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Outer circle */
+.radio-button-custom {
+  width: 2rem;
+  height: 2rem;
+  border: .1rem solid var(--radio-button-border-color);
+  border-radius: 50%;
+  position: relative;
+  margin-right: .8rem;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease-in-out;
+}
+
+/* Filled center circle when selected */
+.radio-input:checked + .radio-button-custom {
+  border: .5rem solid var(--accent-color);
+}
+
+/* .radio-input:checked + .radio-button-custom::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 12px;
+  height: 12px;
+  background-color: white;
+  border-radius: 50%;
+} */
+
+/* Text label */
+.radio-button-text {
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  color: var(--brand-color);
+}

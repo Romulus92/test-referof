@@ -1,6 +1,12 @@
+.datepicker {
+	padding-bottom: 2rem;
+	border-bottom: .1rem solid var(--divider-color);
+}
+
 .datepicker .input-label {
 	display: block;
 	margin-bottom: 1.2rem;
+	font-weight: 600;
 }
 
 .datepicker .input-label sup {
@@ -9,8 +15,15 @@
 
 .datepicker-group {
 	display: flex;
+	flex-direction: column;
 	gap: 2rem;
 	margin-bottom: .8rem;
+}
+
+@media (min-width: 768px) {
+  .datepicker-group {
+		flex-direction: row;
+	}
 }
 
 .datepicker-item {

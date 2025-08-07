@@ -11,7 +11,7 @@
 						</div>
 						<div class="datepicker-info">
 							<span class="datepicker-name">Дата</span>
-							<span class="datepicker-value">{{ startDate }}</span>
+							<span class="datepicker-value">{{ new Date(startDate).toLocaleDateString('ru-RU') }}</span>
 						</div>
 						<input
 							type="date"
@@ -37,7 +37,7 @@
 						</div>
 						<div class="datepicker-info">
 							<span class="datepicker-name">Дата</span>
-							<span class="datepicker-value">{{ endDate }}</span>
+							<span class="datepicker-value">{{ new Date(endDate).toLocaleDateString('ru-RU') }}</span>
 						</div>
 						<input
 							type="date"
@@ -55,17 +55,17 @@
 				</div>
 			</div>
 		</div>
-		<Checkbox v-model="isWithoutEndDate"></Checkbox>
+		<Checkbox></Checkbox>
 	</div>
 </template>
 
 <script setup lang="ts">
 import Checkbox from './Checkbox.vue'
 import { ref } from 'vue'
-const startDate = defineModel('startDate')
-const startTime = defineModel('startTime')
-const endDate = defineModel('endDate')
-const endTime = defineModel('endTime')
+const startDate = defineModel<string>('startDate', { required: true })
+const startTime = defineModel<string>('startTime', { required: true })
+const endDate = defineModel<string>('endDate', { required: true })
+const endTime = defineModel<string>('endTime', { required: true })
 const isWithoutEndDate = defineModel('isWithoutEndDate');
 const startDateInput = ref<HTMLInputElement | null>(null);
 const endDateInput = ref<HTMLInputElement | null>(null);
