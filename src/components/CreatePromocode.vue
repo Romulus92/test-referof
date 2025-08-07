@@ -4,10 +4,10 @@
 			<h2>Создание промокода</h2>
 			<Tabs :tabs :activeTab="step" @changeActiveTab="changeStep"/>
 			<form class="form" v-show="step === 1">
-				<InputElement type="text" :required="true" input-id="name" label="Название промокода" placeholder="Введи название" v-model="name"/>
-				<InputElement type="text" :required="true" input-id="title" label="Заголовок" placeholder="Введи заголовок" v-model="title"/>
-				<TextArea :required="true" input-id="comment" label="Сопроводительный текст" placeholder="Например: «Ты попал в число счастливчиков! Дарим 300 баллов»" v-model="comment"/>
-				<InputElement type="number" :required="true" input-id="title" label="Укажи количество баллов" placeholder="100" v-model="points">
+				<InputElement type="text" :required="true" input-id="name" label="Название промокода" placeholder="Введи название" v-model="store.name.value" :uppercase="true"/>
+				<InputElement type="text" :required="true" input-id="title" label="Заголовок" placeholder="Введи заголовок" v-model="store.title.value"/>
+				<TextArea :required="true" input-id="comment" label="Сопроводительный текст" placeholder="Например: «Ты попал в число счастливчиков! Дарим 300 баллов»" v-model="store.comment.value"/>
+				<InputElement type="number" :required="true" input-id="points" label="Укажи количество баллов" placeholder="100" v-model="store.points.value">
 					<template v-slot:icon>
 						<div class="input-icon">
 							<img src="../assets/images/ref-coin.svg" alt="Ref Coin Icon">
@@ -20,11 +20,11 @@
 				</div>
 			</form>
 			<form class="form" v-show="step === 2">
-				<DatePicker v-model:startDate="startDate" v-model:startTime="startTime" v-model:endDate="endDate" v-model:endTime="endTime" v-model:isWithoutEndDate="isWithoutEndDate"></DatePicker>
-				<InputElement type="number" :required="true" input-id="activation_limit" label="Введите лимит активаций (шт.)" placeholder="1000" v-model="activation_limit" />
+				<DatePicker v-model:startDate="store.startDate.value" v-model:startTime="store.startTime.value" v-model:endDate="store.endDate.value" v-model:endTime="store.endTime.value" v-model:isWithoutEndDate="isWithoutEndDate"></DatePicker>
+				<InputElement type="number" :required="true" input-id="activation_limit" label="Введите лимит активаций (шт.)" placeholder="1000" v-model="store.limit.value" />
 				<div class="radio-button-group">
-					<RadioButton v-model="getMode" value="create" name="create">Создать промокод без отправки</RadioButton>
-					<RadioButton v-model="getMode" value="send" name="send">Отправить промокод всем пользователям</RadioButton>
+					<RadioButton v-model="store.mode.value" value="create" name="create">Создать промокод без отправки</RadioButton>
+					<RadioButton v-model="store.mode.value" value="send" name="send">Отправить промокод всем пользователям</RadioButton>
 				</div>
 				<div class="button-group">
 					<button @click="step = 1" class="button button_secondary">Назад</button>
@@ -45,6 +45,11 @@ import DatePicker from './DatePicker.vue';
 import RadioButton from './RadioButton.vue';
 import type Tab from '../interfaces/TabInterface'
 
+import { useStore } from '../store.ts';
+
+const store = useStore();
+console.log(store.errors)
+
 const tabs: Tab[] = [
 	{
 		value: 1,
@@ -57,17 +62,7 @@ const tabs: Tab[] = [
 ]
 
 const step = ref<number>(1)
-const name = ref<string>('');
-const title = ref<string>('');
-const comment = ref<string>('');
-const points = ref<number>();
-const activation_limit = ref<number>();
-const startDate = ref<string>(new Date().toLocaleDateString('ru-RU'));
-const startTime = ref<string>('10:00');
-const endDate = ref<string>(new Date().toLocaleDateString('ru-RU'));
-const endTime = ref<string>('22:00');
 const isWithoutEndDate = ref<boolean>(false);
-const getMode = ref<'create' | 'send'>('create');
 
 const changeStep = (value: number) => {
 	step.value = value

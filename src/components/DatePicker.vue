@@ -62,10 +62,10 @@
 <script setup lang="ts">
 import Checkbox from './Checkbox.vue'
 import { ref } from 'vue'
-const startDate = defineModel<string>('startDate', { required: true })
-const startTime = defineModel<string>('startTime', { required: true })
-const endDate = defineModel<string>('endDate', { required: true })
-const endTime = defineModel<string>('endTime', { required: true })
+const startDate = defineModel<string | undefined>('startDate', { required: true })
+const startTime = defineModel<string | undefined>('startTime', { required: true })
+const endDate = defineModel<string | undefined>('endDate', { required: true })
+const endTime = defineModel<string | undefined>('endTime', { required: true })
 const isWithoutEndDate = defineModel('isWithoutEndDate');
 const startDateInput = ref<HTMLInputElement | null>(null);
 const endDateInput = ref<HTMLInputElement | null>(null);

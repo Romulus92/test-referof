@@ -12,6 +12,7 @@
 			<input
 				v-if="type === 'text'"
 				class="input"
+				:class="{uppercase: uppercase}"
 				:id="inputId"
 				type="text"
 				v-model="model"
@@ -36,6 +37,7 @@ defineProps<{
   label: string,
 	placeholder: string,
 	inputId: string,
+	uppercase?: boolean,
 }>();
 
 const model = defineModel<string | number>();

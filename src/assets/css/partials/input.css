@@ -45,6 +45,14 @@
 	width: 100%;
 }
 
+.input.uppercase {
+	text-transform: uppercase;
+}
+
+.input.uppercase::placeholder {
+	text-transform: none;
+}
+
 .input::placeholder {
 	color: var(--text-inactive-color);
 }
