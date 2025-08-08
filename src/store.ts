@@ -51,8 +51,15 @@ export function useStore() {
 		}
 	}
 
-	const validateForm = async () => {
-		handleSubmit(onSubmit)();
+	const validateForm = async (closeModal: () => void) => {
+		try {
+			await handleSubmit((values) => {
+				onSubmit(values);
+				closeModal();
+			})();
+		} catch (err) {
+			console.log(`Валидация не пройдена: ${err}`);
+		}
 	}
 
 	type FormValues = InferType<typeof formSchema>

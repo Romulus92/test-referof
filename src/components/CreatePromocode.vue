@@ -66,7 +66,7 @@
 					<button type="submit" class="button">Далее</button>
 				</div>
 			</form>
-			<form class="form" @submit.prevent='store.validateForm(); close()' v-show="store.step.value === 2">
+			<form class="form" @submit.prevent='store.validateForm(close);' v-show="store.step.value === 2">
 				<DatePicker
 					v-model:startDate="store.startDate.value"
 					v-model:startTime="store.startTime.value"
