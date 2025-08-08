@@ -24,9 +24,11 @@
 				:id="inputId"
 				type="number"
 				v-model="model"
+				@keydown="onKeyDown"
 				:placeholder="placeholder"
 			>
 		</div>
+		<slot name="errors"></slot>
 	</div>
 </template>
 
@@ -41,4 +43,33 @@ defineProps<{
 }>();
 
 const model = defineModel<string | number>();
+
+// Minimal JS to allow only digits and necessary control keys
+const onKeyDown = (e: KeyboardEvent) => {
+  const allowedKeys = [
+    'Backspace',
+    'ArrowLeft',
+    'ArrowRight',
+    'Delete',
+    'Tab',
+    'Home',
+    'End',
+  ];
+  
+  // Allow Ctrl/Command + C, V, X (copy, paste, cut)
+  if ((e.ctrlKey || e.metaKey) && ['c', 'v', 'x'].includes(e.key.toLowerCase())) {
+    return;
+  }
+  
+  // Allow digits 0-9 only
+  if (
+    allowedKeys.includes(e.key) || 
+    (e.key >= '0' && e.key <= '9')
+  ) {
+    return; // Allow keypress
+  }
+  
+  // Otherwise prevent input
+  e.preventDefault();
+}
 </script>

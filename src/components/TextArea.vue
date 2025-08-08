@@ -12,12 +12,17 @@
 			:id="inputId"
 			v-model="model"
 			:placeholder="placeholder"
+    	@input="throttledAutoResize"
+			ref="textarea"
 		></textarea>
 		<div class="input-length">{{ model?.length }} / 250</div>
 	</div>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
+import throttle from '../utils/throttle';
+
 defineProps<{
 	required: boolean,
   label: string,
@@ -26,4 +31,13 @@ defineProps<{
 }>();
 
 const model = defineModel<string>();
+
+const textarea = ref<HTMLTextAreaElement | null>(null);
+const autoResize = () => {
+  if (!textarea.value) return;
+	textarea.value.style.height = 'auto'; // reset height to measure scrollHeight
+	textarea.value.style.height = textarea.value.scrollHeight + 'px'; // set new height
+};
+
+const throttledAutoResize = throttle(autoResize, 150);
 </script>

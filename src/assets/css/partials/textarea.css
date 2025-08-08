@@ -6,7 +6,8 @@
 	border-radius: 1.2rem;
 	border: .1rem solid transparent;
 	background: var(--background-color);
-	height: 9rem;
+	resize: none;
+	overflow: hidden;
 }
 
 .textarea::placeholder {

@@ -1,6 +1,11 @@
 <template>
 	<div class="tabs">
-		<div v-for="(item, index) in tabs" class="tabs-item" :class="{active: item.value === activeTab}" @click="$emit('changeActiveTab', item.value)" :key="index" >
+		<div
+			v-for="(item, index) in tabs"
+			class="tabs-item"
+			:class="{active: item.value === activeTab}"
+			@click="$emit('changeActiveTab', item.value)" :key="index"
+		>
 			<span class="tabs-text">{{item.text}}</span>
 		</div>
 	</div>

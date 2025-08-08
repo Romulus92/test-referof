@@ -1,6 +1,7 @@
 .datepicker {
 	padding-bottom: 2rem;
 	border-bottom: .1rem solid var(--divider-color);
+	grid-column: span 2;
 }
 
 .datepicker .input-label {
@@ -51,6 +52,7 @@
 	background: var(--background-color);
 	border-radius: 1.2rem;
 	gap: 1rem;
+	min-height: 4.4rem;
 }
 
 .datepicker-info {
@@ -74,4 +76,8 @@
 	display: block;
 	color: var(--text-secondary-color);
 	margin-bottom: .6rem;
+}
+
+.datepicker .checkbox {
+	margin-top: .8rem;
 }

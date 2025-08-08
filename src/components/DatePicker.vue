@@ -11,7 +11,7 @@
 						</div>
 						<div class="datepicker-info">
 							<span class="datepicker-name">Дата</span>
-							<span class="datepicker-value">{{ new Date(startDate).toLocaleDateString('ru-RU') }}</span>
+							<span class="datepicker-value">{{ startDate ? new Date(startDate).toLocaleDateString('ru-RU') : ''}}</span>
 						</div>
 						<input
 							type="date"
@@ -37,7 +37,7 @@
 						</div>
 						<div class="datepicker-info">
 							<span class="datepicker-name">Дата</span>
-							<span class="datepicker-value">{{ new Date(endDate).toLocaleDateString('ru-RU') }}</span>
+							<span class="datepicker-value">{{ endDate ? new Date(endDate).toLocaleDateString('ru-RU') : '' }}</span>
 						</div>
 						<input
 							type="date"
@@ -55,6 +55,7 @@
 				</div>
 			</div>
 		</div>
+		<slot name="errors"></slot>
 		<Checkbox></Checkbox>
 	</div>
 </template>
